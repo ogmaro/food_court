@@ -1,5 +1,5 @@
 import type { Knex } from 'knex';
-import enviromentVariables from './src/database/config/enviroment';
+import enviromentVariables from './src/config/enviroment';
 const { POSTGRES_PASSWORD, POSTGRES_USER, POSTGRES_DB, DATABSAE_URL } =
   enviromentVariables;
 

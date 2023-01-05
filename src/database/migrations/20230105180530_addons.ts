@@ -4,7 +4,7 @@ export async function up(knex: Knex): Promise<void> {
   return knex.schema.createTable('addons', (table) => {
     table.increments('id').primary();
     table.string('name').notNullable();
-    table.string('description').notNullable();
+    table.string('description').nullable();
     table.integer('price').notNullable();
     table.integer('categoryId').unsigned();
     table
