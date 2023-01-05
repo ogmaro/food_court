@@ -37,3 +37,4 @@ lerna-debug.log*
 .env
 dbSetup.ts
 package-lock.json
+settings.json
