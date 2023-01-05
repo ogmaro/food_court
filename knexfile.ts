@@ -1,5 +1,5 @@
 import type { Knex } from 'knex';
-import enviromentVariables from './database/config/enviroment';
+import enviromentVariables from './src/database/config/enviroment';
 const { POSTGRES_PASSWORD, POSTGRES_USER, POSTGRES_DB, DATABSAE_URL } =
   enviromentVariables;
 
@@ -20,10 +20,10 @@ const configuration: { [key: string]: Knex.Config } = {
     },
     migrations: {
       tableName: 'knex_migrations',
-      directory: './database/migrations',
+      directory: './src/database/migrations',
     },
     seeds: {
-      directory: './database/seeds',
+      directory: './src/database/seeds',
     },
     ...knexSnakeCaseMappers,
   },
@@ -36,10 +36,10 @@ const configuration: { [key: string]: Knex.Config } = {
     },
     migrations: {
       tableName: 'knex_migrations',
-      directory: './database/migrations',
+      directory: './src/database/migrations',
     },
     seeds: {
-      directory: './database/seeds',
+      directory: './src/database/seeds',
     },
     ...knexSnakeCaseMappers,
   },
