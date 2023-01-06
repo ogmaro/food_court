@@ -4,6 +4,12 @@ export async function up(knex: Knex): Promise<void> {
   return knex.schema.createTable('addon_categories', (table) => {
     table.increments('id').primary();
     table.string('name').notNullable();
+    table.integer('brandId').unsigned();
+    table
+      .foreign('brandId')
+      .references('id')
+      .inTable('brands')
+      .onDelete('CASCADE');
     table.timestamp('created_at').defaultTo(knex.fn.now());
     table.timestamp('updated_at').defaultTo(knex.fn.now());
   });
