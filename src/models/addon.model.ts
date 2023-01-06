@@ -2,7 +2,7 @@
 import { BaseModel } from './base.model';
 
 export class AddonModel extends BaseModel {
-    static tableName = 'addons;'
+    static tableName = 'addons'
     readonly name: string;
     readonly description?: string;
     readonly price: number;

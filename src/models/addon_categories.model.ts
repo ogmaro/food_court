@@ -2,7 +2,8 @@
 import { BaseModel } from './base.model';
 
 export class CategoryModel extends BaseModel {
-  static tableName = 'addons;'
+  static tableName = 'addon_categories';
 
+  readonly id: number;
   readonly name: string;
 }

@@ -2,7 +2,7 @@
 import { BaseModel } from './base.model';
 
 export class UserModel extends BaseModel {
-    static tableName = 'users;'
+    static tableName = 'users';
     readonly firstName: string;
     readonly lastName: string;
     readonly email: string;

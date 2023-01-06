@@ -1,10 +1,13 @@
 import { Global, Module } from '@nestjs/common';
-import * as Knex from 'knex';
+import Knex from 'knex';
 import { knexSnakeCaseMappers, Model } from 'objection';
 import { AddonModel } from '../models/addon.model';
 import { CategoryModel } from '../models/addon_categories.model';
 import { UserModel } from '../models/user.model';
 import { BrandModel } from '../models/brand.model';
+import enviromentVariables from '../config/enviroment';
+const { POSTGRES_PASSWORD, POSTGRES_USER, POSTGRES_DB, DATABSAE_URL } =
+  enviromentVariables;
 
 const models = [AddonModel, CategoryModel, BrandModel, UserModel];
 
@@ -21,10 +24,14 @@ const providers = [
     provide: 'KnexConnection',
     useFactory: async () => {
       const knex = Knex({
-        client: 'pg',
-        connection: process.env.DATABASE_URL,
-        debug: process.env.KNEX_DEBUG === 'true',
-        ...knexSnakeCaseMappers(),
+        client: 'postgresql',
+        connection: {
+          database: `${POSTGRES_DB}`,
+          user: `${POSTGRES_USER}`,
+          password: `${POSTGRES_PASSWORD}`,
+          debug: process.env.KNEX_DEBUG === 'true',
+          ...knexSnakeCaseMappers(),
+        },
       });
 
       Model.knex(knex);
