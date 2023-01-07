@@ -1,7 +1,14 @@
-import { IsString, IsNotEmpty, IsInt, IsOptional } from 'class-validator';
+import {
+  IsString,
+  IsNotEmpty,
+  IsInt,
+  IsOptional,
+  MinLength,
+} from 'class-validator';
 
 export class CreateAddonsDto {
   @IsNotEmpty()
+  @MinLength(2)
   @IsString()
   name: string;
 

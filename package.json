@@ -22,7 +22,8 @@
     "migrate": "knex migrate:latest --env dev",
     "migrate:make": "knex migrate:make --env dev -x ts",
     "seed": "knex seed:run --env dev",
-    "seed:make": "knex seed:make --env dev -x ts"
+    "seed:make": "knex seed:make --env dev -x ts",
+    "migrate:seed:all": "npm run migrate && npm run seed"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
