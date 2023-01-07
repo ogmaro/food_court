@@ -6,4 +6,5 @@ export class CategoryModel extends BaseModel {
 
   readonly id: number;
   readonly name: string;
+  readonly brandId: number
 }

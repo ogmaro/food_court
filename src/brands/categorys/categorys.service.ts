@@ -1,7 +1,7 @@
 import { Injectable, Inject, HttpException, HttpStatus } from '@nestjs/common';
-import { CreateCategoryDto } from './dto/create-category.dto';
 import { CategoryModel } from 'src/models/addon_categories.model';
 import { ModelClass } from 'objection';
+import { capitalize } from 'src/utilities/format.string';
 
 @Injectable()
 export class CategorysService {
@@ -10,13 +10,9 @@ export class CategorysService {
     private categoryClass: ModelClass<CategoryModel>,
   ) {}
 
-  async create(brandId: number, CreateCategoryDto: CreateCategoryDto) {
+  async create(data: { brandId: number; name: string }) {
     try {
-      const data = {
-        name: CreateCategoryDto.name,
-        brandId,
-      };
-      return await this.categoryClass.query().insert(data).returning('*');
+      return await this.categoryClass.query().insert(data).first();
     } catch (error) {
       throw new HttpException(
         {
@@ -35,6 +31,24 @@ export class CategorysService {
         .where('brandId', brandId)
         .orderBy('name')
         .limit(10);
+    } catch (error) {
+      throw new HttpException(
+        {
+          status: HttpStatus.INTERNAL_SERVER_ERROR,
+          error: error.message,
+        },
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+  }
+  async findCategoryByName(data: { brandId: number; name: string }) {
+    try {
+      const { brandId, name } = data;
+      return await this.categoryClass
+        .query()
+        .where('name', capitalize(name))
+        .where('brandId', brandId)
+        .first();
     } catch (error) {
       throw new HttpException(
         {
