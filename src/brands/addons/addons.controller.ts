@@ -16,13 +16,16 @@ import {
 import { AddonService } from './addons.service';
 import { CreateAddonsDto } from './dto/create-addons.dto';
 import { UpdateAddonsDto } from './dto/update-addons.dto';
-import { capitalize } from 'src/utilities/format.string';
-import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
+import { capitalize } from '../../utilities/format.string';
+import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
 import { UseGuards } from '@nestjs/common/decorators';
-import { RolesGuard } from 'src/common/guards/roles.guard';
-import { Roles } from 'src/common/decorators/roles.decorator';
+import { RolesGuard } from '../../common/guards/roles.guard';
+import { Roles } from '../../common/decorators/roles.decorator';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 @UseGuards(JwtAuthGuard)
+@ApiBearerAuth()
+@ApiTags('brands')
 @Controller('brands/')
 export class AddonController {
   constructor(private readonly addonService: AddonService) {}

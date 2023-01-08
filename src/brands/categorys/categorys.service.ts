@@ -1,7 +1,7 @@
 import { Injectable, Inject, HttpException, HttpStatus } from '@nestjs/common';
 import { CategoryModel } from 'src/database/models/addon_categories.model';
 import { ModelClass } from 'objection';
-import { capitalize } from 'src/utilities/format.string';
+import { capitalize } from '../../utilities/format.string';
 
 @Injectable()
 export class CategorysService {

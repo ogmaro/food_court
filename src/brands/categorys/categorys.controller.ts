@@ -13,7 +13,7 @@ import {
 } from '@nestjs/common';
 import { CategorysService } from './categorys.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
-import { capitalize } from 'src/utilities/format.string';
+import { capitalize } from '../../utilities/format.string';
 
 @Controller('brands')
 export class CategorysController {

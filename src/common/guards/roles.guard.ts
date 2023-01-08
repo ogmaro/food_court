@@ -4,7 +4,7 @@ import {
     Injectable
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { RolesService } from 'src/roles/roles.service';
+import { RolesService } from '../../roles/roles.service';
 
 
 @Injectable()

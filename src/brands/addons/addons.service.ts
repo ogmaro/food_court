@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { CreateAddonsDto } from './dto/create-addons.dto';
 import { UpdateAddonsDto } from './dto/update-addons.dto';
-import { capitalize } from 'src/utilities/format.string';
+import { capitalize } from '../../utilities/format.string';
 import { AddonModel } from 'src/database/models/addon.model';
 import { CategoryModel } from 'src/database/models/addon_categories.model';
 import { ModelClass } from 'objection';

@@ -2,7 +2,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { RoleModel } from 'src/database/models/role.model';
 import { ModelClass } from 'objection';
-import { UsersService } from 'src/users/users.service';
+import { UsersService } from '../users/users.service';
 
 @Injectable()
 export class RolesService {
