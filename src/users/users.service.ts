@@ -17,27 +17,13 @@ export class UsersService {
       firstName,
       lastName,
       email,
+      roleId: 1,
       password: password,
     };
     const user = await this.userModel.query().insert(data);
     return user;
   }
-
-  findAll() {
-    return `This action returns all users`;
-  }
-
   async findUserByEmail(email: string) {
-    console.log('model');
-
     return await this.userModel.query().where('email', email).first();
-  }
-
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} user`;
   }
 }

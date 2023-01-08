@@ -6,10 +6,11 @@ import { CategoryModel } from '../models/addon_categories.model';
 import { UserModel } from '../models/user.model';
 import { BrandModel } from '../models/brand.model';
 import enviromentVariables from '../config/enviroment';
+import { RoleModel } from 'src/models/role.model';
 const { POSTGRES_PASSWORD, POSTGRES_USER, POSTGRES_DB, DATABSAE_URL } =
   enviromentVariables;
 
-const models = [AddonModel, CategoryModel, BrandModel, UserModel];
+const models = [AddonModel, CategoryModel, BrandModel, UserModel, RoleModel];
 
 const modelProviders = models.map((model) => {
   return {

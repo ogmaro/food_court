@@ -8,6 +8,7 @@ const enviromentVariables = {
     POSTGRES_DB: process.env.POSTGRES_DB,
     POSTGRES_USER: process.env.POSTGRES_USER,
     POSTGRES_PASSWORD: process.env.POSTGRES_PASSWORD,
+    JWT_SECRET: process.env.JWT_SECRET,
   }
 
 export default enviromentVariables;

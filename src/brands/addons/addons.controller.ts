@@ -17,8 +17,10 @@ import { AddonService } from './addons.service';
 import { CreateAddonsDto } from './dto/create-addons.dto';
 import { UpdateAddonsDto } from './dto/update-addons.dto';
 import { capitalize } from 'src/utilities/format.string';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
 import { UseGuards } from '@nestjs/common/decorators';
+import { RolesGuard } from 'src/common/guards/roles.guard';
+import { Roles } from 'src/common/decorators/roles.decorator';
 
 @UseGuards(JwtAuthGuard)
 @Controller('brands/')
@@ -56,6 +58,8 @@ export class AddonController {
     };
   }
   //This retrives all  meal addons from a specific brand using the brand Id
+  @UseGuards(RolesGuard)
+  @Roles('admin')
   @Get(':brandId/addons')
   async findAddonsByBrandId(
     @Param('brandId', new ParseIntPipe()) brandId: number,
