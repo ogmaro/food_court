@@ -17,7 +17,10 @@ import { AddonService } from './addons.service';
 import { CreateAddonsDto } from './dto/create-addons.dto';
 import { UpdateAddonsDto } from './dto/update-addons.dto';
 import { capitalize } from 'src/utilities/format.string';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { UseGuards } from '@nestjs/common/decorators';
 
+@UseGuards(JwtAuthGuard)
 @Controller('brands/')
 export class AddonController {
   constructor(private readonly addonService: AddonService) {}

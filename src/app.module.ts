@@ -6,9 +6,17 @@ import { BrandsModule } from './brands/brands.module';
 import { CategorysModule } from './brands/categorys/categorys.module';
 import { AddonModule } from './brands/addons/addons.module';
 import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [BrandsModule, DatabaseModule, CategorysModule, AddonModule, UsersModule],
+  imports: [
+    BrandsModule,
+    DatabaseModule,
+    CategorysModule,
+    AddonModule,
+    UsersModule,
+    AuthModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
