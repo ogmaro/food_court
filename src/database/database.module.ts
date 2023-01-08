@@ -1,12 +1,12 @@
 import { Global, Module } from '@nestjs/common';
 import Knex from 'knex';
 import { knexSnakeCaseMappers, Model } from 'objection';
-import { AddonModel } from '../models/addon.model';
-import { CategoryModel } from '../models/addon_categories.model';
-import { UserModel } from '../models/user.model';
-import { BrandModel } from '../models/brand.model';
+import { AddonModel } from './models/addon.model';
+import { CategoryModel } from './models/addon_categories.model';
+import { UserModel } from './models/user.model';
+import { BrandModel } from './models/brand.model';
 import enviromentVariables from '../config/enviroment';
-import { RoleModel } from 'src/models/role.model';
+import { RoleModel } from 'src/database/models/role.model';
 const { POSTGRES_PASSWORD, POSTGRES_USER, POSTGRES_DB, DATABSAE_URL } =
   enviromentVariables;
 

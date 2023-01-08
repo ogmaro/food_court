@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Inject, Injectable } from '@nestjs/common';
-import { RoleModel } from 'src/models/role.model';
+import { RoleModel } from 'src/database/models/role.model';
 import { ModelClass } from 'objection';
 import { UsersService } from 'src/users/users.service';
 

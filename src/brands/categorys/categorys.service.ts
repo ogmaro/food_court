@@ -1,5 +1,5 @@
 import { Injectable, Inject, HttpException, HttpStatus } from '@nestjs/common';
-import { CategoryModel } from 'src/models/addon_categories.model';
+import { CategoryModel } from 'src/database/models/addon_categories.model';
 import { ModelClass } from 'objection';
 import { capitalize } from 'src/utilities/format.string';
 
