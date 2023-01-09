@@ -24,7 +24,9 @@ async function bootstrap() {
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api-doc', app, document);
+  SwaggerModule.setup('api-doc', app, document, {
+    customSiteTitle: 'Food Court Doc',
+  });
   //Set PORT app to run
   await app.listen(PORT as unknown as number);
   console.log(
