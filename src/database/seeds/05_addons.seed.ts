@@ -7,7 +7,6 @@ export async function seed(knex: Knex): Promise<void> {
   // Inserts seed entries
   await knex('addons').insert([
     {
-      id: 1,
       name: 'Goat meat',
       description: 'This is a nice description for this addon',
       price: 250,
@@ -15,7 +14,6 @@ export async function seed(knex: Knex): Promise<void> {
       brandId: 1,
     },
     {
-      id: 2,
       name: 'Peak milk',
       description: 'This is a nice description for this addon',
       price: 300,
@@ -23,7 +21,6 @@ export async function seed(knex: Knex): Promise<void> {
       brandId: 1,
     },
     {
-      id: 3,
       name: 'Apple',
       description: 'This is a nice description for this addon',
       price: 150,

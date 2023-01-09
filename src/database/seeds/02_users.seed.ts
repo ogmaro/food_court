@@ -13,7 +13,6 @@ export async function seed(knex: Knex): Promise<void> {
   // Inserts seed entries
   await knex('users').insert([
     {
-      id: 1,
       first_name: 'Haruna',
       last_name: 'James',
       role_id: 1,
@@ -21,7 +20,6 @@ export async function seed(knex: Knex): Promise<void> {
       password: 'password',
     },
     {
-      id: 2,
       first_name: 'Njoli',
       last_name: 'Patrick',
       email: 'njoli@yopmail.com',
@@ -29,7 +27,6 @@ export async function seed(knex: Knex): Promise<void> {
       password: 'password',
     },
     {
-      id: 3,
       first_name: 'Emeka Collins',
       last_name: 'Patrick',
       role_id: 2,
