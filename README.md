@@ -22,6 +22,15 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+<p align="center">
+ <a href="https://ibb.co/yhZN3sG"><img src="https://i.ibb.co/HNbKJg1/schema.png" alt="Database schema" border="0" width="720"/></a>
+</p>
+```bash
+This schema allows you to store multiple roles, users, brands, addons and addon_categories, and also allows users to create multiple brands lists. The brands reference the users table with a foreign key user_id. The addon references the brands and addons_catgories with a foreign key brand_id and category_id. The user references the role id using role_id.
+```
+
+
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
