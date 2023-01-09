@@ -92,8 +92,8 @@ Find below is a link to the swagger Ui documetaion for the endpoint and a little
 
 [Food Court Doc](https://food-court-app.onrender.com/api-doc)
 
-## Documentation
-
+## Live URL
+[Food Court](https://food-court-app.onrender.com/)
 ## Stay in touch
 
 - Author - [Njoli Patrick](https://www.linkedin.com/in/ogmaro/)
