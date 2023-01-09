@@ -38,11 +38,31 @@ $ npm install
 # development
 $ npm run start
 
+
+# create .env from .example.env
+NODE_ENV=dev 
+PORT=5000
+
+KNEX_DEBUG=true
+POSTGRES_DB=food_court_dev
+POSTGRES_USER=YOUR_DATABASE_USERNAME
+POSTGRES_PASSWORD=YOUR_DATABASE_PASSWORD
+JWT_SECRET=YOUR_SECRET
+
+DATABASE_URL=WILL BE PROVIDE ON DRIVE LINK
+
+# migrate and seed :dev data to local database
+# use :prod for remote connection if you have DATABASE_URL set
+$ npm run migrate:seed::all:dev
+
 # watch mode
 $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+
+#Link to documented endpoints
+http://localhost:PORT/api-doc
 ```
 
 ## Test
@@ -64,9 +84,8 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [Kamil Myśliwiec](https://ogmaro.github.io/site/)
+- Twitter - [@nestframework](https://twitter.com/_ogmaro)
 
 ## License
 

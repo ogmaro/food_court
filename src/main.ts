@@ -23,7 +23,7 @@ async function bootstrap() {
     .addTag('addons')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('api-doc', app, document);
   //Set PORT app to run
   await app.listen(PORT as unknown as number);
   console.log(
