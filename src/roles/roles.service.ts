@@ -3,7 +3,6 @@ import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { RoleModel } from 'src/database/models/role.model';
 import { ModelClass } from 'objection';
 import { AuthService } from '../auth/auth.service';
-import { capitalize } from 'src/utilities/format.string';
 
 @Injectable()
 export class RolesService {
