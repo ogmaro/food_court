@@ -23,13 +23,12 @@ export class AddonService {
         brand_id: brandId,
         name: category,
       });
-      console.log(getCategory);
+
       if (!getCategory) {
-        const catgory = await this.categoryService.create({
+        await this.categoryService.create({
           brand_id: brandId,
           name: category,
         });
-        console.log(catgory);
 
         return this.create(brandId, createAddonsDto);
       }
