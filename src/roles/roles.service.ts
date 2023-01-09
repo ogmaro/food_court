@@ -2,7 +2,7 @@
 import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { RoleModel } from 'src/database/models/role.model';
 import { ModelClass } from 'objection';
-import { UsersService } from '../users/users.service';
+import { AuthService } from '../auth/auth.service';
 import { capitalize } from 'src/utilities/format.string';
 
 @Injectable()
@@ -10,11 +10,11 @@ export class RolesService {
   constructor(
     @Inject('RoleModel')
     private roleModel: ModelClass<RoleModel>,
-    private readonly userService: UsersService
+    private readonly authService: AuthService
   ) {}
 
   async getUserRole(email: string) {
-    const user = await this.userService.findUserByEmail(email);
+    const user = await this.authService.findUserByEmail(email);
     if(!user){
       throw new HttpException(
         {

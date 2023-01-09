@@ -65,7 +65,7 @@ export class AddonService {
       throw new HttpException(
         {
           status: HttpStatus.INTERNAL_SERVER_ERROR,
-          error: error.message,
+          error: error,
         },
         HttpStatus.INTERNAL_SERVER_ERROR,
       );
@@ -83,7 +83,7 @@ export class AddonService {
       throw new HttpException(
         {
           status: HttpStatus.INTERNAL_SERVER_ERROR,
-          error: error.message,
+          error: error,
         },
         HttpStatus.INTERNAL_SERVER_ERROR,
       );
@@ -153,7 +153,7 @@ export class AddonService {
       throw new HttpException(
         {
           status: HttpStatus.INTERNAL_SERVER_ERROR,
-          error: error.message,
+          error: error,
         },
         HttpStatus.INTERNAL_SERVER_ERROR,
       );
@@ -170,7 +170,7 @@ export class AddonService {
       throw new HttpException(
         {
           status: HttpStatus.INTERNAL_SERVER_ERROR,
-          error: error.message,
+          error: error,
         },
         HttpStatus.INTERNAL_SERVER_ERROR,
       );
