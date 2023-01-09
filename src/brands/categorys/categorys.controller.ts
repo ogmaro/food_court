@@ -14,11 +14,14 @@ import {
 import { CategorysService } from './categorys.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { capitalize } from '../../utilities/format.string';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Category')
 @Controller('brands')
 export class CategorysController {
   constructor(private readonly categorysService: CategorysService) {}
 
+  @ApiOperation({ summary: 'Create Category with Brand Id' })
   @Post(':brandId/addon-categories')
   @HttpCode(201)
   @UsePipes(ValidationPipe)
@@ -28,7 +31,7 @@ export class CategorysController {
   ) {
     const data = {
       name: capitalize(createBrandDto.name),
-      brandId,
+      brand_id: brandId,
     };
     const categoryExist = await this.categorysService.findCategoryByName(data);
     if (categoryExist) {
@@ -48,6 +51,7 @@ export class CategorysController {
     };
   }
 
+  @ApiOperation({ summary: 'Get All Category with Brand Id' })
   @Get(':brandId/addon-categories')
   async findAllCategorysById(
     @Param('brandId', new ParseIntPipe()) brandId: number,
@@ -60,13 +64,15 @@ export class CategorysController {
       data: category,
     };
   }
+
+  @ApiOperation({ summary: 'Get a Category with Brand Id and name' })
   @Get(':brandId/addon-categories/:name')
   async findCategoryByName(
     @Param('brandId', new ParseIntPipe()) brandId: number,
-    @Param('name', new ParseIntPipe()) name: string,
+    @Param('name') name: string,
   ) {
     const data = {
-      brandId,
+      brand_id: brandId,
       name,
     };
     const category = await this.categorysService.findCategoryByName(data);

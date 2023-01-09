@@ -40,7 +40,7 @@ export class AuthService {
       role_id: this.adminRoleId,
       password: password,
     };
-    const user = await this.userModel.query().insert(data);
+    const user = await this.userModel.query().insert(data).first();
     return user;
   }
   async findUserByEmail(email: string) {

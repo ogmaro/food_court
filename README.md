@@ -62,6 +62,7 @@ DATABASE_URL=WILL BE PROVIDE ON DRIVE LINK
 
 
 # Run database migration and seed data into the database using the script command
+# Go into the app directory
 $ npm run migrate:seed:all:dev
 # There is a similar script to run this in production mode using 
 $ npm run migrate:seed:all:prod
@@ -73,6 +74,7 @@ $ npm run migrate:seed:all:prod
 ## Running the app in dev mode
 
 ```bash
+# Go into the app directory
 # watch mode
 $ npm run start:dev
 
@@ -97,8 +99,8 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://ogmaro.github.io/site/)
-- Twitter - [@nestframework](https://twitter.com/_ogmaro)
+- Author - [Njoli Patrick](https://www.linkedin.com/in/ogmaro/)
+- Twitter - [@_ogmaro](https://twitter.com/_ogmaro)
 
 ## License
 

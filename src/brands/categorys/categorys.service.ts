@@ -7,12 +7,12 @@ import { capitalize } from '../../utilities/format.string';
 export class CategorysService {
   constructor(
     @Inject('CategoryModel')
-    private categoryClass: ModelClass<CategoryModel>,
+    private categoryModel: ModelClass<CategoryModel>,
   ) {}
 
-  async create(data: { brandId: number; name: string }) {
+  async create(data: { brand_id: number; name: string }) {
     try {
-      return await this.categoryClass.query().insert(data).first();
+      return await this.categoryModel.query().insert(data).first();
     } catch (error) {
       throw new HttpException(
         {
@@ -24,11 +24,11 @@ export class CategorysService {
     }
   }
 
-  async findAllCategorysById(brandId: number) {
+  async findAllCategorysById(brand_id: number) {
     try {
-      return await this.categoryClass
+      return await this.categoryModel
         .query()
-        .where('brandId', brandId)
+        .where('brand_id', brand_id)
         .orderBy('name')
         .limit(10);
     } catch (error) {
@@ -41,13 +41,13 @@ export class CategorysService {
       );
     }
   }
-  async findCategoryByName(data: { brandId: number; name: string }) {
+  async findCategoryByName(data: { brand_id: number; name: string }) {
     try {
-      const { brandId, name } = data;
-      return await this.categoryClass
+      const { brand_id, name } = data;
+      return await this.categoryModel
         .query()
         .where('name', capitalize(name))
-        .where('brandId', brandId)
+        .where('brand_id', brand_id)
         .first();
     } catch (error) {
       throw new HttpException(

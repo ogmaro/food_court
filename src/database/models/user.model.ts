@@ -7,5 +7,5 @@ export class UserModel extends BaseModel {
     readonly last_name: string;
     readonly email: string;
     readonly password: string;
-    readonly roleId: number;
+    readonly role_id: number;
 }

@@ -8,13 +8,13 @@ export async function seed(knex: Knex): Promise<void> {
   await knex('brands').insert([
     {
       name: 'Bukka Hut',
-      userId: 1,
+      user_id: 1,
       description: 'We see the best amala',
     },
-    { name: 'Iya Oyo', userId: 2, description: 'We see the best Ogufe' },
+    { name: 'Iya Oyo', user_id: 2, description: 'We see the best Ogufe' },
     {
       name: 'Amala Shitter',
-      userId: 3,
+      user_id: 3,
       description: 'We see the best Ewedu',
     },
   ]);

@@ -5,5 +5,5 @@ export class BrandModel extends BaseModel {
     static tableName = 'brands'
     readonly name: string;
     readonly description: string;
-    readonly userId: number;
+    readonly user_id: number;
 }

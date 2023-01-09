@@ -19,18 +19,27 @@ export class AddonService {
   async create(brandId: number, createAddonsDto: CreateAddonsDto) {
     try {
       const { name, description, price, category } = createAddonsDto;
-      const getCategory = await this.categoryModel
-        .query()
-        .where('name', category)
-        .where('brandId', brandId)
-        .first();
+      const getCategory = await this.categoryService.findCategoryByName({
+        brand_id: brandId,
+        name: category,
+      });
+      console.log(getCategory);
+      if (!getCategory) {
+        const catgory = await this.categoryService.create({
+          brand_id: brandId,
+          name: category,
+        });
+        console.log(catgory);
+
+        return this.create(brandId, createAddonsDto);
+      }
 
       const data = {
         name: capitalize(name),
         description,
         price,
-        categoryId: getCategory.id,
-        brandId,
+        category_id: getCategory.id,
+        brand_id: brandId,
       };
 
       return await this.addonModel.query().insert(data).first();
@@ -38,7 +47,7 @@ export class AddonService {
       throw new HttpException(
         {
           status: HttpStatus.INTERNAL_SERVER_ERROR,
-          error: error.message,
+          error: error,
         },
         HttpStatus.INTERNAL_SERVER_ERROR,
       );
@@ -50,7 +59,7 @@ export class AddonService {
     try {
       return await this.addonModel
         .query()
-        .where('brandId', brandId)
+        .where('brand_id', brandId)
         .orderBy('name')
         .limit(10);
     } catch (error) {
@@ -69,7 +78,7 @@ export class AddonService {
       return await this.addonModel
         .query()
         .where('id', addonId)
-        .where('brandId', brandId)
+        .where('brand_id', brandId)
         .first();
     } catch (error) {
       throw new HttpException(
@@ -93,24 +102,24 @@ export class AddonService {
         name,
         description,
         price,
-        brandId,
+        brand_id: brandId,
       };
       const updateAddon = await this.addonModel
         .query()
         .patch(data)
-        .where('brandId', brandId)
+        .where('brand_id', brandId)
         .where('id', addonId)
         .returning('*')
         .first();
       return updateAddon;
     }
     const categoryId = await this.categoryService.findCategoryByName({
-      brandId,
+      brand_id: brandId,
       name: category,
     });
     if (!categoryId) {
       await this.categoryService.create({
-        brandId,
+        brand_id: brandId,
         name: category,
       });
       return this.update(brandId, addonId, updateAddonsDto);
@@ -120,13 +129,13 @@ export class AddonService {
       name,
       description,
       price,
-      categoryId: categoryId.id,
-      brandId,
+      category_id: categoryId.id,
+      brand_id: brandId,
     };
     const updateAddon = await this.addonModel
       .query()
       .patch(data)
-      .where('brandId', brandId)
+      .where('brand_id', brandId)
       .where('id', addonId)
       .returning('*')
       .first();
@@ -138,7 +147,7 @@ export class AddonService {
       const isAddonDeleted = await this.addonModel
         .query()
         .where('id', addonId)
-        .where('brandId', brandId)
+        .where('brand_id', brandId)
         .delete();
       return isAddonDeleted;
     } catch (error) {
@@ -156,7 +165,7 @@ export class AddonService {
       return await this.addonModel
         .query()
         .where('name', capitalize(addonName))
-        .where('brandId', brandId)
+        .where('brand_id', brandId)
         .first();
     } catch (error) {
       throw new HttpException(

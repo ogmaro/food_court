@@ -6,6 +6,6 @@ export class AddonModel extends BaseModel {
     readonly name: string;
     readonly description?: string;
     readonly price: number;
-    readonly categoryId?: number;
-    readonly brandId: number;
+    readonly category_id?: number;
+    readonly brand_id: number;
 }

@@ -21,15 +21,18 @@ import { JwtAuthGuard } from '../../common/guards/jwt-auth.guard';
 import { UseGuards } from '@nestjs/common/decorators';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @UseGuards(JwtAuthGuard)
 @ApiBearerAuth()
-@ApiTags('brands')
+@ApiTags('Addons')
 @Controller('brands/')
 export class AddonController {
   constructor(private readonly addonService: AddonService) {}
 
+  @ApiOperation({ summary: 'Create Addons with Brand Id' })
+  @UseGuards(RolesGuard)
+  @Roles('admin')
   @Post(':brandId/addons')
   @HttpCode(201)
   @UsePipes(ValidationPipe)
@@ -61,6 +64,7 @@ export class AddonController {
     };
   }
   //This retrives all  meal addons from a specific brand using the brand Id
+  @ApiOperation({ summary: 'Get All Addons by Brand Id' })
   @UseGuards(RolesGuard)
   @Roles('admin')
   @Get(':brandId/addons')
@@ -77,6 +81,9 @@ export class AddonController {
     };
   }
 
+  @ApiOperation({ summary: 'Get Single Addons by Brand Id and Addon Id' })
+  @UseGuards(RolesGuard)
+  @Roles('admin')
   //This retrives a signle addon from a specific brand using the brand Id and addon Id
   @Get(':brandId/addons/:addonId')
   async findSingleAddon(
@@ -92,17 +99,22 @@ export class AddonController {
       data: addon,
     };
   }
-
+  @ApiOperation({ summary: 'Update Addon by Brand Id and Addon Id' })
+  @UseGuards(RolesGuard)
+  @Roles('admin')
   @Patch(':brandId/addons/:addonId')
   @HttpCode(202)
   update(
-    @Param('brandId') brandId: number,
-    @Param('addonId') addonId: number,
+    @Param('brandId', new ParseIntPipe()) brandId: number,
+    @Param('addonId', new ParseIntPipe()) addonId: number,
     @Body() updateAddonsDto: UpdateAddonsDto,
   ) {
     return this.addonService.update(brandId, addonId, updateAddonsDto);
   }
 
+  @ApiOperation({ summary: 'Delete Addon by Brand Id and Addon Id' })
+  @UseGuards(RolesGuard)
+  @Roles('admin')
   @Delete(':brandId/addons/:addonId')
   async removeByAddonId(
     @Param('brandId', new ParseIntPipe()) brandId: number,

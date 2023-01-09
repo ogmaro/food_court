@@ -23,7 +23,7 @@
     "migrate:make": "knex migrate:make --env production -x ts",
     "seed": "knex seed:run --env production",
     "seed:make": "knex seed:make --env production -x ts",
-    "migrate:seed::all:dev": "knex migrate:latest --env dev && knex seed:run --env dev",
+    "migrate:seed:all:dev": "knex migrate:latest --env dev && knex seed:run --env dev",
     "migrate:seed:all:prod": "knex migrate:latest --env production && knex seed:run --env production"
   },
   "dependencies": {

@@ -6,15 +6,15 @@ export async function up(knex: Knex): Promise<void> {
     table.string('name').notNullable();
     table.string('description').nullable();
     table.integer('price').notNullable();
-    table.integer('categoryId').unsigned();
+    table.integer('category_id').unsigned();
     table
-      .foreign('categoryId')
+      .foreign('category_id')
       .references('id')
       .inTable('addon_categories')
       .onDelete('CASCADE');
-    table.integer('brandId').unsigned();
+    table.integer('brand_id').unsigned();
     table
-      .foreign('brandId')
+      .foreign('brand_id')
       .references('id')
       .inTable('brands')
       .onDelete('CASCADE');

@@ -10,22 +10,22 @@ export async function seed(knex: Knex): Promise<void> {
       name: 'Goat meat',
       description: 'This is a nice description for this addon',
       price: 250,
-      categoryId: 1,
-      brandId: 1,
+      category_id: 1,
+      brand_id: 1,
     },
     {
       name: 'Peak milk',
       description: 'This is a nice description for this addon',
       price: 300,
-      categoryId: 3,
-      brandId: 1,
+      category_id: 3,
+      brand_id: 1,
     },
     {
       name: 'Apple',
       description: 'This is a nice description for this addon',
       price: 150,
-      categoryId: 2,
-      brandId: 2,
+      category_id: 2,
+      brand_id: 2,
     },
   ]);
 }
