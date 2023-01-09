@@ -7,7 +7,7 @@ describe('AddonService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [{ provide: 'Addon_Service', useValue: {} }],
+      providers: [AddonService],
     }).compile();
 
     service = module.get<AddonService>(AddonService);
@@ -16,20 +16,20 @@ describe('AddonService', () => {
     const brandId = 1; //BrandId belong to a Bser
     const addonId = 2; //AddonId belonging to a Brand
     const addon = await service.findSingleAddon(brandId, addonId);
-    expect(addon).toBeInstanceOf(AddonModel);
+    expect(addon).toBeInstanceOf([]);
     expect(service).toBeDefined();
   });
 
   it('should get a single Addon by brandId and addonId', async () => {
     const brandId = 1; //BrandId belong to a Bser
     const addon = await service.findAddonsByBrandId(brandId);
-    expect(addon).toBeInstanceOf([AddonModel]);
+    expect(addon).toBeInstanceOf([]);
     expect(service).toBeDefined();
   });
   it('should get a single Addon by brandId and addonId', async () => {
     const brandId = 1; //BrandId belong to a Bser
     const addon = await service.findAddonsByBrandId(brandId);
-    expect(addon).toBeInstanceOf([AddonModel]);
+    expect(addon).toBeInstanceOf([]);
     expect(service).toBeDefined();
   });
 });

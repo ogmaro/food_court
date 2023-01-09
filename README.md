@@ -70,6 +70,29 @@ $ npm run test
 
 ```
 
+## Test User
+```bash
+# Admin test account 
+$ email: njoli@yopmail.com
+$ password: password
+
+# Test token if you don't want to Authenticate
+$ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5qb2xpQHlvcG1haWwuY29tIiwic3ViIjoyLCJpYXQiOjE2NzMyOTQ4NzEsImV4cCI6MTY3Mzg5OTY3MX0.lWEvA3O7rIJPgGOqg9Hjo__jq6l94tt6JcpAyrEeFZc
+
+# User test Account
+$ email: emeka@yopmail.com
+$ password: password
+
+# Test token if you don't want to Authenticate
+$ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtZWthQHlvcG1haWwuY29tIiwic3ViIjozLCJpYXQiOjE2NzMyOTUwNDIsImV4cCI6MTY3Mzg5OTg0Mn0.JfPDBGw83lTG_CBY4EqueHundng3Kg0kw-KezWrspMQ
+```
+
+## Documentation
+Find below is a link to the swagger Ui documetaion for the endpoint and a little more :wink:
+[Food Court Doc](https://food-court-app.onrender.com/api-doc)
+
+## Documentation
+
 ## Stay in touch
 
 - Author - [Njoli Patrick](https://www.linkedin.com/in/ogmaro/)
