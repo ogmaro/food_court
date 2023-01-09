@@ -26,20 +26,16 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+## Installation 
 
 ```bash
+# Clone the Repository
+$ git clone git@github.com:ogmaro/food_court.git
+
+# Install node dependencies
 $ npm install
-```
 
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-
-# create .env from .example.env
+# Create a .env file and copy contents of .example.env into .env. e.g:
 NODE_ENV=dev 
 PORT=5000
 
@@ -51,10 +47,19 @@ JWT_SECRET=YOUR_SECRET
 
 DATABASE_URL=WILL BE PROVIDE ON DRIVE LINK
 
-# migrate and seed :dev data to local database
-# use :prod for remote connection if you have DATABASE_URL set
-$ npm run migrate:seed::all:dev
 
+# Run database migration and seed data into the database using the script command
+$ npm run migrate:seed:all:dev
+# There is a similar script to run this in production mode using 
+$ npm run migrate:seed:all:prod
+
+
+
+```
+
+## Running the app in dev mode
+
+```bash
 # watch mode
 $ npm run start:dev
 
@@ -71,11 +76,6 @@ http://localhost:PORT/api-doc
 # unit tests
 $ npm run test
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
 
 ## Support
