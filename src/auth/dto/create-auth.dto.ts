@@ -8,12 +8,12 @@ export class CreateAuthDto {
   @IsString()
   @IsNotEmpty()
   @MinLength(3)
-  firstName: string;
+  first_name: string;
 
   @IsString()
   @IsNotEmpty()
   @MinLength(3)
-  lastName: string;
+  last_name: string;
 
   @IsNotEmpty()
   @MinLength(6)

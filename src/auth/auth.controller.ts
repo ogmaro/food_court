@@ -22,7 +22,6 @@ export class AuthController {
     return req.user;
   }
   
-  @UseGuards(LocalAuthGuard)
   @Post('/register')
   @UsePipes(ValidationPipe)
  async  register(@Body() createUserDto: CreateAuthDto) {

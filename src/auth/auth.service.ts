@@ -23,7 +23,7 @@ export class AuthService {
     }
     return null;
   }
-  async login(user: any) {
+  async login(user: { email: string; id: number }) {
     const payload = { email: user.email, sub: user.id };
     return {
       access_token: this.jwtService.sign(payload),
@@ -31,13 +31,13 @@ export class AuthService {
   }
 
   async register(createUserDto: CreateAuthDto) {
-    const { firstName, lastName, email, password } = createUserDto;
+    const { first_name, last_name, email, password } = createUserDto;
 
     const data = {
-      firstName,
-      lastName,
+      last_name,
+      first_name,
       email,
-      roleId: this.adminRoleId,
+      role_id: this.adminRoleId,
       password: password,
     };
     const user = await this.userModel.query().insert(data);

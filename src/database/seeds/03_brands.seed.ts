@@ -12,11 +12,11 @@ export async function seed(knex: Knex): Promise<void> {
       userId: 1,
       description: 'We see the best amala',
     },
-    { id: 2, name: 'Iya Oyo', userId: 1, description: 'We see the best Ogufe' },
+    { id: 2, name: 'Iya Oyo', userId: 2, description: 'We see the best Ogufe' },
     {
       id: 3,
       name: 'Amala Shitter',
-      userId: 1,
+      userId: 3,
       description: 'We see the best Ewedu',
     },
   ]);

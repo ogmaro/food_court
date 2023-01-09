@@ -19,10 +19,10 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "knex": "knex --knexfile knexfile.ts",
-    "migrate": "knex migrate:latest --env dev",
-    "migrate:make": "knex migrate:make --env dev -x ts",
-    "seed": "knex seed:run --env dev",
-    "seed:make": "knex seed:make --env dev -x ts",
+    "migrate": "knex migrate:latest --env production",
+    "migrate:make": "knex migrate:make --env production -x ts",
+    "seed": "knex seed:run --env production",
+    "seed:make": "knex seed:make --env production -x ts",
     "migrate:seed:all": "npm run migrate && npm run seed"
   },
   "dependencies": {

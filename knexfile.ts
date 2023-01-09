@@ -1,7 +1,8 @@
 import type { Knex } from 'knex';
 import enviromentVariables from './src/config/enviroment';
-const { POSTGRES_PASSWORD, POSTGRES_USER, POSTGRES_DB, DATABSAE_URL } =
+const { POSTGRES_PASSWORD, POSTGRES_USER, POSTGRES_DB, DATABASE_URL } =
   enviromentVariables;
+console.log(DATABASE_URL);
 
 // Update with your config settings.
 import { knexSnakeCaseMappers } from 'objection';
@@ -27,9 +28,9 @@ const configuration: { [key: string]: Knex.Config } = {
     },
     ...knexSnakeCaseMappers,
   },
-  prod: {
+  production: {
     client: 'postgresql',
-    connection: DATABSAE_URL,
+    connection: DATABASE_URL,
     pool: {
       min: 2,
       max: 10,
