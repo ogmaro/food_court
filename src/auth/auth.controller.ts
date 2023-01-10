@@ -25,7 +25,7 @@ export class AuthController {
   async getProfile(@Request() req) {
     return req.user;
   }
-  @ApiOperation({ summary: 'Create User with Brand Id' })
+  @ApiOperation({ summary: 'Create User ' })
   @Post('/register')
   @UsePipes(ValidationPipe)
  async  register(@Body() createUserDto: CreateAuthDto) {
