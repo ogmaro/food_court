@@ -77,14 +77,14 @@ $ email: njoli@yopmail.com
 $ password: password
 
 # Test token if you don't want to Authenticate
-$ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5qb2xpQHlvcG1haWwuY29tIiwic3ViIjoyLCJpYXQiOjE2NzMyOTQ4NzEsImV4cCI6MTY3Mzg5OTY3MX0.lWEvA3O7rIJPgGOqg9Hjo__jq6l94tt6JcpAyrEeFZc
+$ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5qb2xpQHlvcG1haWwuY29tIiwic3ViIjoyLCJpYXQiOjE2NzMzMDk5NTksImV4cCI6MTY3MzkxNDc1OX0.0_aQ_EDaxxHh-JkeXXyxuC0a5LmEHi-IofIOmHZEcyU
 
 # User test Account
 $ email: emeka@yopmail.com
 $ password: password
 
 # Test token if you don't want to Authenticate
-$ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtZWthQHlvcG1haWwuY29tIiwic3ViIjozLCJpYXQiOjE2NzMyOTUwNDIsImV4cCI6MTY3Mzg5OTg0Mn0.JfPDBGw83lTG_CBY4EqueHundng3Kg0kw-KezWrspMQ
+$ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtZWthQHlvcG1haWwuY29tIiwic3ViIjozLCJpYXQiOjE2NzMzMDk5ODUsImV4cCI6MTY3MzkxNDc4NX0.SQXMW2UwbZiv8s46kNPO9S9CHfR6jXNKf0Z07AiGwHI
 ```
 
 ## Documentation
