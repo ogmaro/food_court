@@ -3,7 +3,7 @@ import Knex from 'knex';
 import { knexSnakeCaseMappers, Model } from 'objection';
 import { AddonModel } from './models/addon.model';
 import { CategoryModel } from './models/addon_categories.model';
-import { UserModel } from './models/user.model';
+import { AuthModel } from './models/auth.model';
 import { BrandModel } from './models/brand.model';
 import enviromentVariables from '../config/enviroment';
 import { RoleModel } from 'src/database/models/role.model';
@@ -15,7 +15,7 @@ const {
   NODE_ENV,
 } = enviromentVariables;
 
-const models = [AddonModel, CategoryModel, BrandModel, UserModel, RoleModel];
+const models = [AddonModel, CategoryModel, BrandModel, AuthModel, RoleModel];
 
 const modelProviders = models.map((model) => {
   return {

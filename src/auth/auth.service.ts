@@ -3,15 +3,15 @@ import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { ModelClass } from 'objection';
-import { UserModel } from 'src/database/models/user.model';
+import { AuthModel } from 'src/database/models/auth.model';
 
 @Injectable()
 export class AuthService {
   constructor(
     private usersService: UsersService,
     private jwtService: JwtService,
-    @Inject('UserModel')
-    private userModel: ModelClass<UserModel>,
+    @Inject('AuthModel')
+    private authModel: ModelClass<AuthModel>,
   ) {}
   public adminRoleId = 1;
 
@@ -41,7 +41,7 @@ export class AuthService {
         role_id: this.adminRoleId,
         password: password,
       };
-      const user = await this.userModel.query().insert(data).first();
+      const user = await this.authModel.query().insert(data).first();
       return user;
     } catch (error) {
       throw new HttpException(
@@ -54,6 +54,6 @@ export class AuthService {
     }
   }
   async findUserByEmail(email: string) {
-    return await this.userModel.query().where('email', email).first();
+    return await this.authModel.query().where('email', email).first();
   }
 }

@@ -26,6 +26,15 @@ export class RolesService {
     console.log(user);
     
     const role = await this.roleModel.query().findById(user.role_id).first();
+    if(!role){
+      throw new HttpException(
+        {
+          status: HttpStatus.NOT_FOUND,
+          error: `User role not found`,
+        },
+        HttpStatus.NOT_FOUND,
+      );
+    }
     return role.name;
   }
 }
