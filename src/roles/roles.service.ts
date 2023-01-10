@@ -23,7 +23,7 @@ export class RolesService {
         HttpStatus.NOT_FOUND,
       );
     }
-    console.log(user)
+    
     let role:RoleModel;
     if(!user.role_id){
       role = await this.roleModel.query().findById(user.roleId).first();
